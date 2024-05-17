@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>  
+
+    <!-- <div id="card"></div> -->
+    <script>
+
+        //  let parent=document.getElementById("card")
+        // //  parent.innerHTML="hello"
+        //  parent.style.height="300px"
+        //  parent.style.width="300px"
+        //  parent.style.backgroundColor="yellow"
+        //  document.body.appendChild(parent)
+
+        // function demo(hello){
+        //     return `hi world ${hello}`
+        // }
+        // let hello='hyd'
+        // let two=demo(hello)
+        // console.log(two)
+
+    //    function demo1(e){
+    //     setTimeout(()=>{
+    //         console.log("hello")
+    //         e()
+    //     },3000)
+    //    }        
+       
+    //    function demo2(s){
+    //     setTimeout(()=>{
+    //         console.log("hi")
+    //         s()
+    //     },2000)
+    //    }
+    //    function demo3(){
+    //     setTimeout(()=>{
+    //         console.log("hyderabad")
+    //     },1000)
+
+    
+    //    }
+    //    demo1(()=>{
+    //     demo2(()=>{
+    //         demo3()
+    //     })
+    //    })
+
+         function demo4(h){
+             return fetch('https://fakestoreapi.com/products')
+            
+         }
+        //  console.log(demo4())
+        demo4().then((h)=>h.json()).then((h)=>{
+        let data=h
+        let container=document.createElement("div")
+            container.style.display="grid"
+            container.style.justifyContent='center'
+            // container.style.gap='20px'
+            container.style.gridTemplateColumns="auto auto auto"
+            // container.style.borderBlock='0px'
+            container.style.margin='10px'
+            // grid-template-columns: repeat(9,100px);
+            container.style.gridTemplateColumns = "repeat(3,400px)"
+            container.style.backgroundColor="lightblue"
+            document.body.appendChild(container)
+        for(i of data){
+
+            let parent=document.createElement("div")
+        //  parent.style.height="600px"
+        //  parent.style.width="400px"
+         parent.style.backgroundColor="yellow"
+         parent.style.boxShadow='20px 10px'
+         parent.style.margin="20px"
+         parent.style.display='grid'
+        //  parent.style.rowGap="30px"
+         parent.style.justifyItems='center'
+         parent.style.alignItems='center'
+         container.appendChild(parent)
+        
+        
+        // let div1=document.createElement("p")
+        // div1.innerHTML=i.id
+
+        // parent.appendChild(div1)
+
+        let div2=document.createElement("p")
+        div2.innerHTML=i.title
+        parent.appendChild(div2)
+
+        let div6=document.createElement("img")
+        div6.src=i.image
+
+        div6.setAttribute("style","height:50%;width:50%;")
+        parent.appendChild(div6)
+
+        let div3=document.createElement("p")
+        div3.innerHTML=i.price
+        parent.appendChild(div3)
+
+        let div4=document.createElement("p")
+        div4.innerHTML=i.description
+        parent.appendChild(div4)
+
+        let div5=document.createElement("p")
+        div5.innerHTML=i.category
+        parent.appendChild(div5)
+
+        
+
+        let div7=document.createElement("p")
+        div7.innerHTML=i.rating.rate
+        parent.appendChild(div7)
+
+        let div8=document.createElement("p")
+        div8.innerHTML=i.rating.count
+        parent.appendChild(div8)
+
+        
+        }
+        })
+
+    </script>
+</body>
+</html>
